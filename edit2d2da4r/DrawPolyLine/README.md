@@ -25,7 +25,7 @@ This sample demonstrates a way to draw curves through DA4R
 
 ```json
 {
-  "id": "RevitMaterialsExtractorActivity",
+  "id": "DrawCurvesActivity",
   "commandLine": [
     "$(engine.path)\\\\revitcoreconsole.exe /i \"$(args[inputFile].path)\" /al \"$(appbundles[DrawCurves].path)\""
   ],
