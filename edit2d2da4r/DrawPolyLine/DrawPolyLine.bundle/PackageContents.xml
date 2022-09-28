@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage Name="RevitDesignAutomation" Description="Plugin " Author="learnforge.autodesk.io">
+  <CompanyDetails Name="Autodesk, Inc" Url="http://learnforge.autodesk.io" Email="forge.help@autodesk.com"/>
+  <Components Description="Create PolyLines from input parameter points">
+    <RuntimeRequirements SeriesMax="R2023" SeriesMin="R2021" Platform="Revit" OS="Win64"/>
+    <ComponentEntry LoadOnRevitStartup="True" LoadOnCommandInvocation="False" AppDescription="Draw PolyLines" ModuleName="./Contents/DrawPolyLines.addin" Version="1.0.0" AppName="Draw PolyLines"/>
+  </Components>
+</ApplicationPackage>
