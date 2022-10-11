@@ -6,7 +6,7 @@
     <Text>Revit for Design Automation</Text>
     <Description>Revit for Design Automation</Description>
     <VisibilityMode>AlwaysVisible</VisibilityMode>
-    <Assembly>.\UpdateRVTParam.dll</Assembly>
+    <Assembly>.\DrawPolyLine.dll</Assembly>
     <AddInId>e6a3e212-7354-4384-8c0c-6f7505406124</AddInId>
     <VendorId>ADSK</VendorId>
     <VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>

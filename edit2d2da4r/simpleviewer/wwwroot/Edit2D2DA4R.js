@@ -65,17 +65,28 @@
   }
 
   afterAction(event) {
+    let layer = this.viewer.getExtension('Autodesk.Edit2D').defaultContext.layer;
     let data = {};
     let viewport = this.getViewport(event.action.shape._loops[0], this.viewer);
     data.points = this.getPointsFromAction(event.action.shape._loops[0], viewport);
     data.urn = atob(this.viewer.model.getSeedUrn());
     data.viewname = this.getViewPortName(this.viewer, viewport.viewportRaw.viewGuid);
+    layer.clear();
 
     if (data.points.includes(null)) {
       Swal.fire({
-        title: 'Error!',
+        title: 'Points Error!',
         icon: 'error',
         text: 'Not able to transform all selected points!',
+        showConfirmButton: false,
+        timer: 5000
+      });
+    }
+    else if (!data.viewname) {
+      Swal.fire({
+        title: 'View Error!',
+        icon: 'error',
+        text: 'Not able to retrieve view name!',
         showConfirmButton: false,
         timer: 5000
       });
@@ -101,7 +112,7 @@
             .catch(error => {
               Swal.showValidationMessage(
                 `Request failed: ${error}`
-              )
+              );
             })
         },
         allowOutsideClick: () => !Swal.isLoading()
@@ -195,6 +206,7 @@
         }
       }
     };
+    this.button.addClass('edit2d2da4r');
 
     this.group = new Autodesk.Viewing.UI.ControlGroup('draw-tool-group');
     this.group.addControl(this.button);
