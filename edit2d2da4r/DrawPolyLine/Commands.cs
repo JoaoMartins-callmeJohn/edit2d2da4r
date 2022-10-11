@@ -40,17 +40,17 @@ namespace Autodesk.Forge.Sample.DesignAutomation.Revit
 			{
 				trans.Start("Create Curves");
 
-				Console.WriteLine("Reading input points");
-				List<XYZ> points = inputParameters.Points.Select(point => new XYZ(point.X, point.Y, point.Z)).ToList();
-				Console.WriteLine($"{points.Count} points found!");
-				points.ForEach(point => Console.WriteLine(point.ToString()));
-
 				Console.WriteLine("Acquiring View!");
 				List<Element> views = new FilteredElementCollector(revitDoc).OfClass(typeof(View)).WhereElementIsNotElementType().ToElements().ToList();
 
 				View inputView = views.Find(v => v.Name == inputParameters.ViewName) as View;
 
 				Console.WriteLine($"View {inputView.Name} found!");
+
+				Console.WriteLine("Reading input points");
+				List<XYZ> points = inputParameters.Points.Select(point => new XYZ(point.X, point.Y, inputView.GenLevel.Elevation)).ToList();
+				Console.WriteLine($"{points.Count} points found!");
+				points.ForEach(point => Console.WriteLine(point.ToString()));
 
 				Console.WriteLine("Creating Curves!");
 				for (int i = 0; i < points.Count - 1; i++)
