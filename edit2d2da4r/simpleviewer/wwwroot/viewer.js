@@ -32,7 +32,6 @@ export function loadModel(viewer, urn) {
     return new Promise(function (resolve, reject) {
       function onDocumentLoadSuccess(doc) {
           doc.downloadAecModelData();
-          load3DModel();
           resolve(viewer.loadDocumentNode(doc, doc.getRoot().getDefaultGeometry()));
       }
       function onDocumentLoadFailure(code, message, errors) {
@@ -41,15 +40,4 @@ export function loadModel(viewer, urn) {
       viewer.setLightPreset(0);
       Autodesk.Viewing.Document.load('urn:' + urn, onDocumentLoadSuccess, onDocumentLoadFailure);
     });
-}
-
-async function load3DModel() {
-  Autodesk.Viewing.Initializer({ getAccessToken }, function () {
-    const config = {
-      extensions: ['Autodesk.AEC.LevelsExtension']
-    };
-    var htmlDiv = document.getElementById('hidden');
-    viewer = new Autodesk.Viewing.GuiViewer3D(htmlDiv, config);
-    var startedCode = viewer.start();
-  });
 }

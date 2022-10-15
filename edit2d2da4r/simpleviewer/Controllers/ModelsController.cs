@@ -41,7 +41,7 @@ public class ModelsController : ControllerBase
 		{
 			if (ex.ErrorCode == 404)
 			{
-				string decodedUrn = Encoding.UTF8.GetString(Convert.FromBase64String(urn+"="));
+				string decodedUrn = Encoding.UTF8.GetString(Convert.FromBase64String(urn));
 				var job = await _forgeService.TranslateModel(decodedUrn, null);
 				return new TranslationStatus("inprogress", "0% complete", new List<string>());
 			}
