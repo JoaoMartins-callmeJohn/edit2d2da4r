@@ -63,8 +63,8 @@ namespace simpleviewer.Controllers
 		[HttpGet("workitem")]
 		public async Task<dynamic> CheckWorkitem(string workitemId, string uploadkey, string bucketKey, string objectName)
 		{
-			dynamic status = await _forgeService.GetWorkitem(workitemId, uploadkey, bucketKey, objectName, _designAutomation);
-			return Ok(new { Status = status.ToString() });
+			dynamic workitemInfo = await _forgeService.GetWorkitem(workitemId, uploadkey, bucketKey, objectName, _designAutomation);
+			return Ok(new { Status = workitemInfo.status, reportUrl = workitemInfo.reportUrl });
 		}
 	}
 }

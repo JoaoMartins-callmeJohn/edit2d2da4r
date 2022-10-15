@@ -132,18 +132,13 @@ public partial class ForgeService
 		WorkItemStatus workItemStatus = await _designAutomation.GetWorkitemStatusAsync(workitemId);
 
 		dynamic workitemReturn = new ExpandoObject();
-		workitemReturn.status = workItemStatus.Status;
+		workitemReturn.status = workItemStatus.Status.ToString();
+		workitemReturn.reportUrl = workItemStatus.ReportUrl==null ? "" : workItemStatus.ReportUrl.ToString();
 
 		if (workItemStatus.Status == Status.Success)
-		{
 			CompleteUpload(uploadkey, bucketKey, objectName);
-		}
-		else
-		{
-			workitemReturn.reportUrl = workItemStatus.ReportUrl;
-		}
 
-		return workItemStatus.Status;
+		return workitemReturn;
 	}
 
 	public async Task CompleteUpload(string uploadkey, string bucketKey, string objectName)

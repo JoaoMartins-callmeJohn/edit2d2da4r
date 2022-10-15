@@ -68,12 +68,16 @@
     let layer = this.viewer.getExtension('Autodesk.Edit2D').defaultContext.layer;
     let data = {};
     let viewport = this.getViewport(event.action.shape._loops[0], this.viewer);
-    data.points = this.getPointsFromAction(event.action.shape._loops[0], viewport);
-    data.urn = atob(this.viewer.model.getSeedUrn());
-    data.viewname = this.getViewPortName(this.viewer, viewport.viewportRaw.viewGuid);
+    try {
+      data.points = this.getPointsFromAction(event.action.shape._loops[0], viewport);
+      data.urn = atob(this.viewer.model.getSeedUrn());
+      data.viewname = this.getViewPortName(this.viewer, viewport.viewportRaw.viewGuid);
+    } catch (error) {
+      //this means we had an error trying to retrieve points or view
+    }
     layer.clear();
 
-    if (data.points.includes(null)) {
+    if (!data.points || data.points.includes(null)) {
       Swal.fire({
         title: 'Points Error!',
         icon: 'error',
@@ -149,9 +153,9 @@
           position: 'top',
           timer: 7000,
           html: `Report URL <a href=${jsonResponse.reportUrl}>here</a>`,
-          icon: jsonResponse.status == 'success' ? 'success' : 'error',
+          icon: jsonResponse.status == 'Success' ? 'success' : 'error',
           showConfirmButton: false
-        });
+        }).then(() => window.location.href = "/");
       }
         
     }, 4000);

@@ -23,12 +23,13 @@ Before taking advantage of this sample, you need to create an appbundle with the
 ## Live version
 
 
+
 # Setup
 
 ## Prerequisites
 
-1. ** Account**: 
-2. **Forge Account**: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
+1. **DrawPolyLine bundle and activity ready**: Follow the steps at DrawPolyLine project in order to publish the proper appbundle and activity. This sample takes advantage of that.
+2. **Forge Account**: Learn how to create an APS (formerly Forge) Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/). 
 3. **Visual Studio**: Either Community (Windows) or Code (Windows, MacOS).
 4. **.NET 6** basic knowledge with C#
 5. **JavaScript** basic knowledge
@@ -39,21 +40,7 @@ Clone this project or download it. It's recommended to install [GitHub desktop](
 
     git clone https://github.com/Autodesk-Forge/forge-viewhubs
 
-**Visual Studio 2022** (Windows):
 
-Right-click on the project, then go to **Debug**. Click on `Open debug launch profiles UI`. Adjust the settings as shown below. 
-
-![](forgeSample/wwwroot/img/readme/debug_settings_1.png)
-
-Finally scroll down the same window to `enable SSL` and `Anonymous Authentication`. Make sure they are both checked.
-
-![](forgeSample/wwwroot/img/readme/debug_settings_2.png)
-
-**Visual Code** (Windows, MacOS):
-
-Open the folder, at the bottom-right, select **Yes** and **Restore**. This restores the packages (e.g. Autodesk.Forge) and creates the launch.json file. See *Tips & Tricks* for .NET Core on MacOS.
-
-![](forgeSample/wwwroot/img/readme/visual_code_restore.png)
 
 **Environment variables**
 
@@ -86,7 +73,8 @@ Tutorials:
 This sample uses .NET 6 and works fine on both Windows and MacOS, see [this tutorial for MacOS](https://github.com/augustogoncalves/dotnetcoreheroku).
 It's just recomended to use Visual Studio 2022 for Windows, so you're able to compile both appbundle and web app.
 Follow the steps under DrawPolyLine project to create the bundle and activity under your account.
-**This only works on sheets**
+**This only works on sheets**, so you'll need to perform the edit2d steps in a Revit 2D sheet.
+Also, please note that **the viewport from sheet needs to be translated for this to work!**.
 
 ### Troubleshooting
 

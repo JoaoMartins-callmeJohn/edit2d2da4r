@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,12 +34,17 @@ public class ModelsController : ControllerBase
 		try
 		{
 			var status = await _forgeService.GetTranslationStatus(urn);
+
 			return status;
 		}
 		catch (Autodesk.Forge.Client.ApiException ex)
 		{
 			if (ex.ErrorCode == 404)
-				return new TranslationStatus("n/a", "", new List<string>());
+			{
+				string decodedUrn = Encoding.UTF8.GetString(Convert.FromBase64String(urn+"="));
+				var job = await _forgeService.TranslateModel(decodedUrn, null);
+				return new TranslationStatus("inprogress", "0% complete", new List<string>());
+			}
 			else
 				throw ex;
 		}
