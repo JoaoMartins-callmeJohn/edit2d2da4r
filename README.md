@@ -24,6 +24,8 @@ The proccess is just like in the diagram below.
 
 Go throw each project folder to get more details.
 
+## [Demo Video](https://youtu.be/Hwf2kOwfy2I)
+
 ## Diagram
 
 ![](./assets/diagram.png)
