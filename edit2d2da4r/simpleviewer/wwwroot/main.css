@@ -58,6 +58,10 @@
   display:none;
 }
 
+#logo{
+  height:1em;
+}
+
 .edit2d2da4r {
   background-image: url("https://img.icons8.com/ios/32/000000/line--v1.png");
   background-size: 32px;

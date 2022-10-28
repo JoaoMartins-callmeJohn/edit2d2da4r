@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\APS-LOGO.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autodesk.Forge" Version="1.9.7" />
     <PackageReference Include="Autodesk.Forge.DesignAutomation" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
