@@ -16,9 +16,7 @@ This is a basic web app that leverages the [Simple Viewer Tutorial](https://forg
 To make this work, you need to draw the polilyne inside a viewport from a sheet view (and the viewport need to be available as a translated viewable from the model).
 Before taking advantage of this sample, you need to create an appbundle with the content from the DrawPolyLine project in this repo (feel free to modify it's logic').
 
-## Demo Video
-
-
+## [Demo Video](https://youtu.be/Hwf2kOwfy2I)
 
 # Setup
 
@@ -47,8 +45,6 @@ At the `appsettings.json`, find the env vars and add your Forge Client ID, Secre
 "FORGE_CLIENT_SECRET": "HERE GOES YOUR CLIENT SECRET",
 "FORGE_BUCKET": "HERE GOES YOUR BUCKET KEY"
 ```
-
-Watch [this video](https://www.youtube.com/watch?v=Oqa9O20Gj0c) on how deploy samples to Heroku.
 
 # Further Reading
 
