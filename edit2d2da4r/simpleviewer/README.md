@@ -20,10 +20,6 @@ Before taking advantage of this sample, you need to create an appbundle with the
 
 
 
-## Live version
-
-
-
 # Setup
 
 ## Prerequisites
