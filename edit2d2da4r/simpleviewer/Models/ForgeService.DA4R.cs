@@ -11,7 +11,6 @@ using static simpleviewer.Controllers.DA4RController;
 public partial class ForgeService
 {
 	public static string _uploadKey;
-
 	public static bool HttpErrorHandler(ApiResponse<dynamic> response, string msg = "", bool bThrowException = true)
 	{
 		if (response.StatusCode < 200 || response.StatusCode >= 300)
