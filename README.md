@@ -22,7 +22,7 @@ Before taking advantage of this sample, you need to create an appbundle with the
 
 The proccess is just like in the diagram below.
 
-Go throw each project folder to get more details.
+Go through each project folder to get more details.
 
 ## [Demo Video](https://youtu.be/Hwf2kOwfy2I)
 
